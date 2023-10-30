@@ -81,6 +81,32 @@ paths:
              adplication/json:
                schema:
                  $ref: "#/components/schemas/Error"
+    delete:
+      summary: Метод удаления заказа по ID
+      operationId: deleteCloudById
+      parameters:
+        - name: cloud_id
+          in: path
+          required: true
+          description: Идентификатор заказа облака
+          schema:
+            type: string
+          example: f102b615
+      responses:
+        "200":
+          description: Успешный ответ удаления облака по ID
+        "404":
+          description: Заказ с ID не найден
+          content:
+            adplication/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default":
+          description: Все остальное
+          content:
+            adplication/json:
+              schema:
+                $ref: "#/components/schemas/Error"
 components:
   schemas:
     Cloud:
